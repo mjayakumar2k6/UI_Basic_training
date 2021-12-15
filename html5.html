@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HTML5</title>
+    <script>
+        sessionStorage.setItem("token", 123);
+        localStorage.setItem("details", "jk");
+
+        console.log(localStorage.getItem("arr"));
+        console.log(localStorage.getItem("details"));
+
+        console.warn("somethis is wrong");
+        console.error("error");
+    </script>
+</head>
+<body>
+    <div id="header">Header</div>
+    <div>
+        <div id="sidemenu">
+            Sidemnue
+        </div>
+        <div id="content">
+            Contect section
+        </div>
+    </div>
+    <div id="footer">
+        Footer
+    </div>
+
+
+    <header>
+        Header
+    </header>
+    <nav>
+        Sidemenu
+    </nav>
+    <main>
+        <article></article>
+        <article></article>
+    </main>
+    <footer>
+        Footer
+    </footer>
+
+
+    <form action="saveHtml">
+        <label for="number">Number</label>
+        <input min="100" step="100" max="1000" type="number" name="count" id="number">
+
+        <label for="range">Range</label>
+        <input type="range" name="range" id="range">
+
+        <video src="">
+            <source src="./image/ex.mp4" type="video/mp4">
+            <source src="./image/ex.mp3" type="video/mp3">
+            Your browser doest not support this feature
+        </video>
+
+        <audio src="">
+            <source src="">
+        </audio>
+    </form>
+</body>
+</html>
