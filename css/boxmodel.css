@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+}
+.boxmodel {
+    border: 3px solid red;
+    margin: 10px 20px 30px 40px;
+    padding: 10px 30px 50px 60px;
+}
+
+button.leave {
+    padding: 5px 10px;
+    background-color: red;
+    border: 1px solid red;
+    color: white;
+    border-radius: 10px;
+    float: right;
+    cursor: pointer;
+    opacity: 0.8;
+}
+button.leave:hover {
+    opacity: 1;
+}
+.float {
+    clear: both;
+    text-align: right;
+    width: 300px;
+}
+.float div {
+    float: left;
+}
+
+button:disabled {
+    opacity: 0.2;
+    pointer-events: none;
+}
