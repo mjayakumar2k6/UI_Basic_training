@@ -2,8 +2,8 @@ h2 {
     color: red !important;
     font-style: italic;
 }
-h2#makemepink {
-    color: pink;
+h2#makemepink.test.active {
+    color: pink !important;
 }
 .big {
     font-size: 100px;

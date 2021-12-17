@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Flex</title>
+    <style>
+        table {
+            width: 100%;
+        }
+        .table {
+            display: table;
+            width: 100%;
+        }
+        .row {
+            display: table-row;
+        }
+        .td {
+            display: table-cell;
+        }
+        .flex {
+            display: flex;
+            justify-content: space-between;
+            height: 300px;
+            width: 300px;
+            flex-wrap: wrap;
+            flex-direction: row-reverse;
+            background-color: thistle;
+            align-items: center;
+        }
+        .flex-child {
+            width: 101px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr><th>Name</th><th>Email</th><th>Address</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Test</td><td>Test</td><td>Test</td></tr>
+            <tr><td>Test</td><td>Test</td><td>Test</td></tr>
+            <tr><td>Test</td><td>Test</td><td>Test</td></tr>
+            <tr><td>Test</td><td>Test</td><td>Test</td></tr>
+            <tr><td>Test</td><td>Test</td><td>Test</td></tr>
+            <tr><td>Test</td><td>Test</td><td>Test</td></tr>
+            <tr><td>Test</td><td>Test</td><td>Test</td></tr>
+            <tr><td>Test</td><td>Test</td><td>Test</td></tr>
+        </tbody>
+    </table>
+
+    <div class="table">
+        <div class="row">
+            <div class="td">Name</div>
+            <div class="td">Email</div>
+            <div class="td">Address</div>            
+        </div>
+    </div>
+
+    <div class="flex">
+        <div class="flex-child">1</div>
+        <div class="flex-child">2</div>
+        <div class="flex-child">3</div>
+    </div>
+</body>
+</html>
