@@ -1,0 +1,29 @@
+/* transition
+        transition-delay
+        transition-duration
+        transition-property
+        transition-timing-function */
+        div {
+            height: 100px;
+            width: 100px;
+            background-color: red;
+            color: white;
+            margin: 10px;
+        }
+        .heighttransition {
+            transition: width 2s, height 3s;
+        }
+        .heighttransition:hover {
+            width: 200px;
+            height: 200px;
+        }
+        .opacity {
+            opacity: 0;
+            transition: opacity 3s, background-color 3s, height 3s;
+            transition-delay: 5s;
+        }
+        .opacity:hover {
+            opacity: 1;
+            background-color: green;
+            height: 200px;
+        }
