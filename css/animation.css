@@ -1,28 +1,42 @@
 /* @keyframes identifier {
             
-        } */
-        div {
-            height: 100px;
-            width: 100px;
-            border: 2px solid;
-            /* animation-name: changebg;
-            animation-duration: 14s; */
-            animation: changebg 10s ease 0s 3;
-            margin: 10px;
-        }
+} */
+div {
+    height: 100px;
+    width: 100px;
+    border: 2px solid;
+    /* animation-name: changebg;
+    animation-duration: 14s; */
+    animation: changebg 10s ease 0s 3;
+    margin: 10px;
+}
 
-        .changebyper {
-            animation: changebyper 10s;
-        }
+.changebyper {
+    animation: changebyper 10s;
+}
 
-        @keyframes changebg {
-            from{background-color: red;}
-            to{background-color: green;}
-        }
+.rotate {
+    animation: rotate 10s ease 0s 3;
+    position: relative;
+}
 
-        @keyframes changebyper {
-            0% {background-color: red;}
-            25% {background-color: yellow;}
-            50%{background-color: green;}
-            100% {background-color: orange;}
-        }
+@keyframes changebg {
+    from{background-color: red;}
+    to{background-color: green;}
+}
+
+@keyframes changebyper {
+    0% {background-color: red;}
+    25% {background-color: yellow;}
+    50%{background-color: green;}
+    100% {background-color: orange;}
+}
+
+
+@keyframes rotate {
+    0% {background-color: red;left: 0;top:0;}
+    25% {background-color: yellow;left: 200px;top:0;}
+    50% {background-color: green;left: 200px;top:200px;}
+    75% {background-color: yellow;left: 0px;top:200px;}
+    100% {background-color: yellow;left: 0px;top:0px;}
+}
