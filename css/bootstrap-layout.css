@@ -1,0 +1,27 @@
+body {
+    padding-top: 76px;
+}  
+.col-2 {
+    position: sticky;
+    top: 76px;
+    z-index: 1000;
+    height: calc(100vh - 4rem);
+}      
+h1 {
+    font-size: 2em;
+    color: green;
+    text-align: center;
+}
+.contents {
+    border: 1px solid red;
+    height: 100px;
+}
+.contents:nth-child(1) {
+    background-color: rebeccapurple;
+}
+.contents:nth-child(2) {
+    background-color: green;
+}
+.contents:nth-child(3) {
+    background-color: blue;
+}
