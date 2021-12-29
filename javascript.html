@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS - Basics</title>
+    <script>
+        // console.log("Hi there!!!");
+        // console.warn("Not recommended!");
+        // console.error("Something went wrong");
+        console.log(window, "window Object")
+        console.log(document, "Document")
+        
+        function OverrideName() {
+            name1 = "JS goto changed";
+            var name = "CSS"
+            console.log("name inside function", name);
+        }
+        var name = "JS";
+        OverrideName();
+
+        //Array, Object, Strings, Numbers
+
+        //Array
+        var contents = ["HTML", "CSS", "JS"];
+        contents.push("jQuery");
+        console.log(contents, "Push will add the element to array");
+        contents.pop()
+
+        console.log(contents, "pop will remove from array");
+
+        var index = contents.indexOf("CSS1");
+        console.log(index, "indexOf will find the index of an element");
+
+        var soloCopy = Object.assign([], contents);//Assiging contents to soloCopy variable using Object.assign
+        var newArr = contents;//Assiging contents to newArr variable
+        
+        newArr.pop();//removing the last element from newArr
+        contents.push("Angular");//Adding an element to contents
+        
+        console.log("newArr", newArr, newArr.length);
+        console.log("contents", contents);
+        console.log("soloCopy", soloCopy);
+
+        var sIndex = contents.indexOf("CSS");
+        contents.splice(sIndex,1);
+        console.log(contents, contents.join("-"));
+
+
+        //Object
+        var training = {name: "JS", duration: 20, participants: 10, "newKey": "Hi"};
+        var soloTraining = Object.assign({}, training);
+        var newTraining = training;
+        newTraining.name = "HTML";
+        console.log("newTraining", newTraining);
+        console.log("training", training);
+        console.log("soloTraining", soloTraining);
+        console.log("newKey", training["newKey"], training.newKey);
+        console.log(Object.keys(training), Object.values(training));
+
+        //string
+        var str = "Javascript";
+        var str1 = 'JS';
+        console.log(str, str1, str.length, str + str1, str.toUpperCase());
+        var str2 = "Hello there there there";
+        
+        console.log(str2.replace("there", "JS"));
+        console.log(str2.replaceAll("there", "JS"));
+
+        //Numbers
+        var num = 1;
+        var num1 = 1.289067;
+        var num2 = -2;
+        console.log(num+num1, num*num1, num1.toFixed("2"), Math.round(num1), Math.abs(num2));
+
+        var NAME = "WELCOME TO JS TRAINING";
+
+        //Date
+        var today = new Date();
+        console.log(today, today.getDate(), today.getMonth(), today.toLocaleDateString());
+
+        //Conditional statements
+        js = "js"
+        if(js == "javascript") {
+            console.log("if");
+        } else if(js=="js") {
+            console.log("elseif");
+        } else {
+            console.log("else");
+        }
+
+        switch (js) {
+            default:
+                console.log("default switch");
+                break;            
+            case "javascript":
+                console.log("if switch");
+                break;
+            case "js":
+                console.log("elseif switch");
+                break;
+            case js!="js" && js!="javascript":
+                console.log("else switch");
+                break;
+        }
+
+        var cs = js == "javascript" ? "matched" : "not matched";
+        console.log(cs);
+
+        var csNum = "1";
+        var csInt = 1;
+        console.log(csNum == csInt, csNum === csInt);
+
+        //Loops
+        /*to comment*/
+
+        for(var i=1;i<5;i++) {
+            console.log("for", i);
+        }
+
+        for(var j=0;j<newArr.length;j++) {
+            console.log(j,newArr[j]);
+        }
+
+        newArr.forEach(function(element, index){
+            console.log(element, index, "foreach");
+        });
+        console.log("====");
+        for(var x in training) {
+            console.log(x, training[x]);
+        }
+        console.log("====");
+        for(var y of newArr) {
+            console.log(y, "Y");
+        }
+
+        //Functions
+
+        function greet() {
+            console.log("Welcome to UI Training");
+        }
+
+        greet();
+
+        function greetWithName(n) {
+            console.log("Hello " + n);
+            console.log("=== Greet method will be called");
+            greet();
+        }
+        greetWithName();
+        greetWithName("Jayakumar");
+        greetWithName("Asiya");
+        greetWithName("Test");
+
+        (function(){
+            console.log("IIF");
+        })()
+
+        function sum(a,b) {
+            return a+b;
+        }
+
+        function mul(a, b) {
+            return a*b;
+        }
+
+        function calculate(a,b) {
+            var s = sum(a,b);
+            var m = mul(a,b);
+            console.log(s,m);
+        }
+        calculate(6,7);
+
+    </script>
+</head>
+<body>
+    
+
+    <!-- This will improve performance asyc, defer -->
+</body>
+</html>
