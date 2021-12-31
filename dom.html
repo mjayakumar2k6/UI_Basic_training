@@ -34,7 +34,15 @@
     <div class="togglediv" style="border: 2px solid black; height: 100px;width: 200px;">
         Toggle Div
     </div>
-    
+    <br>
+
+    <form style="border: 1px solid;">
+        <div id="bubbling" style="border: 1px solid red;margin: 30px;">
+            <p id="bublingP" style="border: 1px solid green;margin: 30px;height: 30px;"></p>
+        </div>
+    </form>
+
+    <a href="./display.html" onclick="checkAndGo(event)">Go to Display</a>
     <script>
         function receivefn(event, callback) {
             if(event === "click") {
@@ -44,6 +52,29 @@
 
         receivefn("click", function(){console.log("call method called")});
 
+        //Event Bubbling
+        document.querySelector("form").addEventListener("click", function(event){
+            console.log("form clicked", event.target, event.currentTarget);
+            //event.preventDefault();
+        });
+
+        document.querySelector("#bubbling").addEventListener("click", function(event){
+            console.log("div clicked", event.target, event.currentTarget, event.stopPropagation());
+        });
+
+        document.querySelector("#bublingP").addEventListener("click", function(event){
+            console.log("p clicked", event, event.target, event.currentTarget, event.stopPropagation());
+        });
+
+        //Prevent Events
+        function checkAndGo(event) {
+            var userLoggedIn  = true;
+            if(!userLoggedIn) {
+                event.preventDefault();
+            }
+            
+        }
+
         function bindevents(nodes, event, type) {
             for(var i=0;i<nodes.length;i++) {
                 nodes[i].addEventListener(event, function(){
@@ -52,9 +83,11 @@
             }
         }
 
-        document.getElementById("byid").addEventListener("click", function(){
+        var byIdClickCallback = function(){
             console.log("Logged useing event listener");
-        })
+        };
+
+        document.getElementById("byid").addEventListener("click", byIdClickCallback)
 
         var elements = document.getElementsByClassName("myclass");
         bindevents(elements, "click", "class");
@@ -69,6 +102,8 @@
 
         function changeBg(color) {            
             document.getElementById("bgdiv").style.backgroundColor = color;
+            document.getElementById("bgdiv").innerHTML=color;
+            console.log(document.getElementById("bgdiv").innerHTML);
         }
 
         //id = #, class = .
@@ -79,6 +114,9 @@
                 document.querySelector(".togglediv").style.display = "none";
             }            
         });
+
+
+        
 
     </script>
 </body>
