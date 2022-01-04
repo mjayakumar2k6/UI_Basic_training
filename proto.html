@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype</title>
+</head>
+<body>
+    <script>
+        //Prototype
+        var arr = [1,2,4,5];
+        console.log(arr.length);
+
+        
+
+        Array.prototype.sum = function() {
+            var s = 0;
+
+            //this
+            for(var x of this) {
+                s = s + x;
+            }
+            return s;
+        }
+
+        console.log(arr.sum());
+
+        var arr1 = [3,4,6];
+        console.log(arr1.sum());
+
+        //Bind
+
+        var person = {
+            firstName: "Jayakumar",
+            lastName:  "Manickam",
+            ids: [1,2,4,5],
+            address: {
+                city: "",
+                pincode: ""
+            },
+            getFullName: function() {
+
+                // console.log(this);
+                console.log(this.firstName + " " + this.lastName);
+
+                return function() {
+                    console.log(this.firstName + " " + this.lastName);
+                }.bind(person)
+
+                // setTimeout(function(){
+                //     console.log(this.firstName, "inside timeout");
+                // }.bind(this), 1000);
+
+                // setTimeout(function(){
+                //     console.log(this.firstName, "inside timeout");
+                // }, 1000);
+
+            }
+        }
+
+        var gf = person.getFullName();
+        gf();
+        
+    </script>
+</body>
+</html>
