@@ -35,6 +35,7 @@
         function addTodo() {
             var todoValue = document.getElementById("todo").value;
 
+            //Validation
             if(todoValue == "") {
                 document.getElementById("todo").classList.add("error");
                 return;
@@ -48,12 +49,50 @@
             var todoContainer = document.getElementById("todocontainer");
             todoContainer.appendChild(liElement);
 
+            saveInLocal(todoValue);
+
             document.getElementById("todo").value = "";
         }
 
+        var allTodos = [];
+
+        function getAllTodos() {
+            var tds = localStorage.getItem("todos");
+            if(tds) {
+                allTodos = JSON.parse(tds);
+            }
+
+            for(var i=0;i<allTodos.length;i++) {
+                var liElement = document.createElement("li");
+                liElement.innerHTML = allTodos[i] + " <a onclick='deletItem(this, event)'>Delete</a>";
+
+                var todoContainer = document.getElementById("todocontainer");
+                todoContainer.appendChild(liElement);
+            }
+
+        }
+
+        function saveInLocal(todoValue) {
+            var tds = localStorage.getItem("todos");
+            if(tds) {
+                allTodos = JSON.parse(tds);
+            }
+            allTodos.push(todoValue);
+
+            localStorage.setItem("todos", JSON.stringify(allTodos));
+        }
+
         function deletItem(elem, event) {
+            var deleteTodo = event.target.parentElement.textContent.replace(" Delete", "");
+            var deleteIndex = allTodos.indexOf(deleteTodo);
+            //splice to delete item from array
+            allTodos.splice(deleteIndex, 1);
+            localStorage.setItem("todos", JSON.stringify(allTodos));
+
             event.target.parentElement.remove();
         }
+
+        getAllTodos();
     </script>
     
 </body>
