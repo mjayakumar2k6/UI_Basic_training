@@ -61,6 +61,27 @@
 
         var gf = person.getFullName();
         gf();
+
+        //call, apply and bind
+        function sum(a,b) {
+            console.log(this.c, this.num);
+            return this.num + a + b;
+        }
+        //Will help to bind the this scope, same number arguments has to be passed
+
+        var cObj =  {num: 2, c: "call"};
+        var callFn = sum.call(cObj, 3, 5);
+        console.log(callFn);
+
+        //Same as call and arguments will be passed as array
+        var aObj = {num: 3, c: "apply"};
+        var applyFn = sum.apply(aObj, [3, 5])
+        console.log(applyFn);
+
+        //Same as above and can be called in future
+        var bObj = {num: 3, c: "bind"};
+        var bindFn = sum.bind(bObj);
+        console.log(bindFn(5,6));
         
     </script>
 </body>

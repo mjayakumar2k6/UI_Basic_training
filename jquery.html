@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="console.log('onLoad')">
+    <div>
+        <a id="a1" class="navlink" href="#" target="_blank" rel="noopener noreferrer">Anchor</a><br>
+        <a id="a2" class="navlink" href="#" target="_blank" rel="noopener noreferrer">Anchor</a><br>
+        <a id="a3" class="navlink" href="#" target="_blank" rel="noopener noreferrer">Anchor</a><br>
+        <a id="a4" class="navlink" href="#" target="_blank" rel="noopener noreferrer">Anchor</a><br>
+    </div>
+    <div class="navlink">Div</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            console.log("ready");
+        });
+
+        //Selctors
+        console.log(document.getElementsByTagName("a"), $("a"))
+        console.log($("div.navlink"));
+        console.log($("a#a1.navlink"));
+
+        document.getElementById("a2").innerHTML = "Achor tag 2 modified";
+        
+        $("#a4").text("<b>Anchor 4 modified by jquery</b>");
+        $("#a3").html("<b>Anchor 3 modified by jquery</b>");
+
+        console.log("t", $("#a1").attr("target"));
+        
+        $("a").removeAttr("target");
+        
+        //set attribute
+        $("a").attr("href", "./form.html");
+        document.querySelectorAll("a").forEach(function(elem){
+            elem.setAttribute("href", "#");
+        });
+
+    </script>
+</body>
+</html>
