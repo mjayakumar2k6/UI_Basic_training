@@ -14,10 +14,31 @@
         <a id="a4" class="navlink" href="#" target="_blank" rel="noopener noreferrer">Anchor</a><br>
     </div>
     <div class="navlink">Div</div>
+    <div class="navlink">Div1</div>
+    <div class="navlink">Div2</div>
+    <div class="navlink">Div3</div>
+    <div class="navlink">Div4</div>
+
+    <ul id="todocontainer">
+        <li>Learn jquery</li>
+    </ul>
+
+    <ul id="done">
+
+    </ul>
+
+    <input type="text" name="training" id="training">
+    <div id="displaytraining"></div>
+    <div id="updateonblur"></div>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         $(document).ready(function(){
             console.log("ready");
+
+            addTodo();
+
+            bindEvent();
         });
 
         //Selctors
@@ -37,8 +58,50 @@
         //set attribute
         $("a").attr("href", "./form.html");
         document.querySelectorAll("a").forEach(function(elem){
-            elem.setAttribute("href", "#");
+            //elem.setAttribute("href", "#");
         });
+
+        function addTodo() {
+            $("#todocontainer").append("<li>Learn DOM in jquery</li>");
+            $("<h3>Todos</h3>").insertBefore("#todocontainer");
+
+            $("<h3>Done</h3>").insertAfter("#todocontainer");
+
+            $("<li>Learn Javascript</li>").insertBefore("#todocontainer li:first-child");
+
+            $("#todocontainer li:first-child").appendTo("#done");
+
+            $("div.navlink,#a1,#a2").remove();
+
+        }
+
+        function bindEvent() {
+            $("a:not(#a3)").on("mouseenter", function(){
+                console.log("Mouse enter");
+            });
+
+            $("a:not(#a3)").on("click", function(event){
+                event.preventDefault();
+                console.log("Click");
+            });
+
+            $("input").on("keyup", function(event){ //keypress, keydown, keyup
+                console.log(event.target.value);
+                $("#displaytraining").text(event.target.value);
+            });
+
+            
+
+            $("input").on("blur", function(event){ //blur, focus
+                console.log(event.target.value);
+                $("#updateonblur").text(event.target.value);
+            });
+
+            $("input").on("focus", function(event){ //blur, focus
+                console.log(event.target.value, this, $(this));
+                $(this).val("");
+            });
+        }
 
     </script>
 </body>
