@@ -31,6 +31,19 @@
     <div id="displaytraining"></div>
     <div id="updateonblur"></div>
     
+
+    <div id="events">
+        <a href="#">Log</a>
+        <a href="#">Log1</a>
+    </div>
+
+    <div id="effects">
+        <button id="show">Show</button>
+        <button id="hide">Hide</button>
+        <button id="toggle">Toggle</button>
+        <div style="height: 100px;width:100px;border: 1px solid;"></div>
+    </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         $(document).ready(function(){
@@ -39,6 +52,8 @@
             addTodo();
 
             bindEvent();
+
+            logEvent();
         });
 
         //Selctors
@@ -69,6 +84,7 @@
 
             $("<li>Learn Javascript</li>").insertBefore("#todocontainer li:first-child");
 
+            $("#todocontainer li:first-child").appendTo("#done");
             $("#todocontainer li:first-child").appendTo("#done");
 
             $("div.navlink,#a1,#a2").remove();
@@ -101,8 +117,46 @@
                 console.log(event.target.value, this, $(this));
                 $(this).val("");
             });
+
+            
         }
 
+        function logEvent() {
+            // $("#events a").on("click", function(event){
+            //     event.stopImmediatePropagation();
+            //     console.log(this.innerHTML, $(this).html());
+            //     $("#events").append("<a href='#'>Log 2</a>")
+            // });
+
+            $(document).on("click", "#events a", function(){
+                event.stopImmediatePropagation();
+                console.log(this.innerHTML, $(this).html());
+                $("#events").append("<a href='#'>Log 2</a>")                
+            });
+
+            $("#show").on("click", function(){
+                $("#effects div").show();
+            });
+
+            $("#hide").on("click", function(){
+                $("#effects div").hide();
+            });
+            $("#toggle").on("click", function(){
+                $("#effects div").toggle();
+            });
+
+            $( "#effects div" ).slideDown( "slow", function() {
+                // Animation complete
+            });
+
+            $( "#effects div" ).slideUp( "slow", function() {
+                // Animation complete
+            });
+
+            $( "#effects div" ).fadeIn( "slow", function() {
+                console.log("done")
+            });
+        }
     </script>
 </body>
 </html>
