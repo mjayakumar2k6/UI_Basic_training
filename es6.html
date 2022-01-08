@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecmascript 2016 - ES6</title>
+</head>
+<body>
+    <script>
+        //Let, Const
+        var name = "Jayakumar";
+        if(true) {
+            console.log("var name = ", name);
+            var name = "Manickam";
+            console.log("var name = ", name);
+        }
+        var name = "JK";
+        console.log(name);
+
+        {
+            let training = "JS";
+            if(true) {
+                //console.log("let training = ", training);
+                let training = "Angular";
+                console.log("let training = ", training);
+            }  
+            training = "ES6";
+            console.log(training);
+        }
+     
+        {
+            const subject = "Jquery";
+            {                
+                const subject = "CSS";
+                console.log(subject);
+            }
+            console.log(subject);
+            //subject = "Bootstrap"
+        }
+
+        //Template Literals
+        function makeUpperCase(str) {
+            return str.toUpperCase();
+        }
+        function welcome(mode, type) {
+            console.log("welcome to " + mode + " " + type + " training");
+
+            console.log(`welcome to ${mode.toUpperCase()} ${makeUpperCase(type)} training`);
+        }
+        welcome("Angular", "Beginner");
+
+        //Default Function Parameters
+
+        function es5Fn(a,b,c) {
+            console.log(a,b,c);
+        }
+
+        es5Fn(1);
+        es5Fn(1,2);
+        es5Fn(1,2,3);
+
+        function defaultParams(a=1, b=2, c=3) {
+            console.log(a,b,c);
+        }
+        defaultParams();
+        defaultParams(4);
+        defaultParams(4,5);
+        defaultParams(4,5,6);
+
+        //Rest Parameters
+        console.log("reset params");
+        function es5Rest(a,b) {
+            console.log(a,b, arguments);
+        }
+        es5Rest(1,2,3,4,5);
+
+        function restParams(a, b, ...c) {
+            console.log(a,b,c);
+        }
+
+        restParams(1,2,3,4,5,6);
+
+        //Spread Operator
+        let arr = [1,2,3,4];
+        let arr1 = arr;
+        //ES5 way
+        let arr2 = Object.assign([], arr);
+        //ES6
+        let arr3 = [...arr];
+        
+        arr.pop() //1,2,3
+        arr1.push(5);//1,2,3,4,5
+        
+        console.log("arr", arr);
+        console.log("arr1", arr1);
+        console.log("arr2", arr2);
+        console.log("arr3", arr3);
+
+        let details = {name: "Angular", mode: "Beginner", topics: ["angular", "js", "css"]};
+        let details1 = details;
+        let details2 = Object.assign({}, details);//es5 way
+        let details3 = {...details, topics: [...details.topics]};
+        details3.topics.push("jquery");
+
+        details.name = "Javascript";
+        details2.name = "Typescript";
+        details3.name = "Jquery";
+
+        console.log("details", details);
+        console.log("details1", details1);
+        console.log("details2", details2);
+        console.log("details3", details3);
+
+    </script>
+</body>
+</html>
