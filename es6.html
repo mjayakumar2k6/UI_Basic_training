@@ -112,6 +112,59 @@
         console.log("details2", details2);
         console.log("details3", details3);
 
+        //Arrow Function
+        console.log("Arrow Function");
+        function es5Fn() {
+            console.log("Function");
+        }
+
+        const es6Fn = () => {
+            console.log("Inside Arrow functions");
+        }
+
+        es5Fn();
+        es6Fn();
+
+        const person = {
+            firstName: "Jayakumar",
+            lastName: "Manickam",
+            displayName: function() {
+
+                console.log(this);
+
+                (function(){
+                    console.log(this);
+                })()
+
+                var bindFn = function() {
+                    console.log(this, "this with bind");
+                }.bind(this);
+                bindFn();
+                
+                const arrFn = () => {
+                    console.log(this);
+                };
+                arrFn();
+   
+                // console.log(`${this.firstName} ${this.lastName}`);
+                // console.log("this inside displayName", this);
+
+                // var self = this;
+
+                // setTimeout(function(){
+                //     console.log("this inside timeout", this);
+                //     console.log(`inside timeout ${self.firstName} ${self.lastName}`);
+                // }.bind(this), 1);
+
+                // setTimeout(() => {
+                //     console.log("this inside timeout arrow funtion", this);
+                //     console.log(`inside timeout arrow function ${this.firstName} ${this.lastName}`);                    
+                // }, 1);
+            }
+        }
+
+        console.log(person.displayName());
+
     </script>
 </body>
 </html>
