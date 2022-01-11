@@ -165,6 +165,57 @@
 
         console.log(person.displayName());
 
+        //Destructuring Assignment
+        var cars = ["Maruti Alto", "Toyoto Innova","Hyundai i20"];
+        var car1 = cars[0],
+            car2 = cars[1];
+        
+        console.log(car1, car2);
+
+        let [car3, car4, car5, car6="Honda Amaze"] = cars;
+        let [c7, ...c8] = cars;
+        console.log(car3, car4, car5, car6);
+        console.log("c7", c7, c8);
+
+        //es5
+        let pfirstName = person.firstName;
+        let plastName = person.lastName;
+        //es6
+        let {firstName:fname, lastName} = person;
+        console.log(fname, lastName);
+
+        //import & export
+
+        //Classes
+        class Person {
+            constructor(firstName, lastName) {
+                this.firstName = firstName;
+                this.lastName = lastName;
+            }
+            greet() {
+                console.log("Hello fom class", this.firstName, this.lastName);
+            }
+        }
+
+        const p = new Person("Jaykumar", "Manickam");
+        p.greet();
+
+        //of
+        for(let x in person) {
+            console.log("x=",person[x]);
+        }
+        
+        for(let cc in cars) {
+            console.log(cc, cars[cc]);
+        }
+
+        for(let cof of cars) {
+            console.log(cof);
+        }
+        cars.forEach(function(val,index){
+            console.log(val,index, "foreach");
+        });
     </script>
+    <script src="./js/import.js" type="module"></script>
 </body>
 </html>
