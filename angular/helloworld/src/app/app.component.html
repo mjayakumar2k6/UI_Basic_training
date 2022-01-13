@@ -1,14 +1,23 @@
 {{ title }}
+<br>
 {{ name }}
+<br>
 {{ 2 + 2}}
-
+<br>
 {{ "Jayakumar " + "Manickam"}}
 {{ "Jayakumar".length }}
-
+<br>
+{{ "Jayakumar".toUpperCase() }}
+<br>
 {{ show ? "Show is true" : "Show is false"}}
-
+<br>
 {{ url }}
+<br>
 
 {{ training.join("**") }}
-
+<br>
 {{ greet("Angular") }}
+
+
+<app-test *ngIf="showelem"></app-test>
+<app-newcomponent></app-newcomponent>
