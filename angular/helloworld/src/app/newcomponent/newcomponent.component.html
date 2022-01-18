@@ -1,8 +1,35 @@
-<p>newcomponent works!</p>
+<!-- 
+<h2>Property Binding</h2>
 
-
-<input type="text" disabled="false"><br>
+<input type="text" value="disabledfalse" disabled="false"><br>
 <input type="text" name="" id="{{idinput}}" [disabled]="true"><br>
-<input type="text" name="" [id]="myid" [disabled]="isdisabled">
+<input type="text" name="" [id]="myid" [disabled]="isdisabled" [readonly]="false">
 <br>
 <input type="text" [value]="10" id="myin">
+
+<h2>Class Binding</h2>
+
+<h4 class="error" [class]="success">Success</h4>
+<h4 [ngClass]="{
+    success : isSuccess && isSpecial ,
+    error: !isSuccess && !isSpecial,
+    special: isSpecial
+}">Apply condiionally</h4> -->
+
+
+<h2>Style Binding</h2>
+
+<h4 class="error">Stlye binding</h4>
+<h4 style="color:red;">inline</h4>
+<h4  [style.color]="'red'" [style.fontStyle]="'italic'">SB</h4>
+
+<h4 [ngStyle]="{color: 'green', fontStyle: 'italic'}">NG Style</h4>
+
+<h2>Event Biding</h2>
+
+<a onclick="console.log('HI')">JS click</a>
+<button (click)="logMessage()">Log</button>
+<div><button (click)="greet='Welcome to the UI training'">Log Inlie</button></div>
+<div><button (click)="greetWithParams('UI')">Greet With Params</button></div>
+<div><button (click)="eventKeyword($event)">With Event</button></div>
+<div>{{greet}}</div>
