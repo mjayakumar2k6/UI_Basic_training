@@ -16,7 +16,7 @@
     special: isSpecial
 }">Apply condiionally</h4> -->
 
-
+<!-- 
 <h2>Style Binding</h2>
 
 <h4 class="error">Stlye binding</h4>
@@ -28,8 +28,80 @@
 <h2>Event Biding</h2>
 
 <a onclick="console.log('HI')">JS click</a>
+<a href="http://www.google.com" (click)="preventLink($event)" target="_blank" >Google</a>
 <button (click)="logMessage()">Log</button>
 <div><button (click)="greet='Welcome to the UI training'">Log Inlie</button></div>
 <div><button (click)="greetWithParams('UI')">Greet With Params</button></div>
 <div><button (click)="eventKeyword($event)">With Event</button></div>
-<div>{{greet}}</div>
+<div>{{greet}}</div> -->
+
+<h2>Template reference varialbe</h2>
+<div>
+    <input type="text" #inp>
+    <div>
+        <button (click)="logInputValue(inp.value)">Log Input Value</button>
+    </div>
+</div>
+
+<h2>Two way data binding - ngModel</h2>
+
+<input type="text" [(ngModel)]="name">
+<div>{{name}}</div>
+
+<div>
+    <!-- <div>username: <input type="text" [(ngModel)]="username"></div> -->
+    <div>username: <input type="text" [(ngModel)]="userObj.username"></div>
+    {{userObj | json}}
+    <!-- <div>password: <input type="password" [(ngModel)]="password"></div> -->
+    <div>password: <input type="password" [(ngModel)]="userObj.password"></div>
+    <div><button (click)="doLogin()">Login</button></div>
+</div>
+
+<h2>Structural directives</h2>
+
+<div>
+    ngIf, ngSwitch, ngFor
+</div>
+
+<div style="display: flex;">
+    <button (click)="activeTabIndex=0">Tab 1</button>
+    <button (click)="activeTabIndex=1">Tab 2</button>
+    <button (click)="activeTabIndex=2">Tab 3</button>
+</div>
+<div style="width: 100%;height: 100px;border: 1px solid">
+    <!-- <div *ngIf="activeTabIndex==0">Tab 1 content</div>
+    <div *ngIf="activeTabIndex==1">Tab 2 content</div>
+    <div *ngIf="activeTabIndex==2">Tab 3 content</div> -->
+
+    <div *ngIf="activeTabIndex==0;else templateName">tab 1 content</div>
+</div>
+
+<ng-template #templateName>
+    <div>Tab 2 content</div>
+</ng-template>
+
+<div [ngSwitch]="activeTabIndex">
+    <div *ngSwitchCase="0">Tab 1</div>
+    <div *ngSwitchCase="1">Tab 2</div>
+    <div *ngSwitchCase="2">Tab 3</div>
+    <div *ngSwitchDefault>Tab 1</div>
+</div>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Password</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let u of users">
+            <td>{{u.id}}</td>
+            <td>{{u.username}}</td>
+            <td>{{u.password}}</td>
+        </tr>
+    </tbody>
+</table>
