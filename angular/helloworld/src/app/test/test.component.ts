@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-test',
@@ -6,6 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./test.component.scss']
 })
 export class TestComponent implements OnInit {
+
+  // @Input() trainingFromParent!:String[];
+  @Input('trainingFromParent') training!:String[];
+  @Output() logEvent = new EventEmitter<any>();
+
+  today: Date = new Date();
+  name: string = "welcome to angular training";
+
+  num: number = 1000.554;
 
   constructor() { 
     console.log("Constructor", "test component");
@@ -26,5 +35,10 @@ export class TestComponent implements OnInit {
     console.log("Destroy");
     
   }
+
+  addJquery() {
+    this.logEvent.emit("jQuery");    
+  }
+  
 
 }

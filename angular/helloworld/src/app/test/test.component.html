@@ -1,3 +1,50 @@
 <p>test works!</p>
 
 <!-- <div id="myid">From test component</div> -->
+
+<h2>Component Interation</h2>
+
+{{training}}
+
+<div><button (click)="addJquery()"> Add jQuery</button></div>
+
+<h2>Pipes</h2>
+
+{{ training | json}}
+
+<div>
+    {{ name | uppercase }}    
+</div>
+
+<div>{{ name | titlecase | lowercase }}</div>
+<div>{{ name | titlecase }}</div>
+
+{{ name }}
+
+{{ training | slice:1:2 }}
+<div>{{num}}</div>
+<div>
+    {{num | currency}}
+</div>
+<div>
+    {{ num | currency:"INR" }}
+</div>
+
+<div>
+    {{num | currency:"GBP":"code"}}
+</div>
+<div>
+    {{num | percent}}
+</div>
+===
+<div>
+    {{num | number:'2.1-2'}}
+</div>
+
+{{today}}
+<div>
+    {{today | date}}
+</div>
+<div>
+    {{today | date:'medium'}}
+</div>

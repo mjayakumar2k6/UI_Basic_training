@@ -19,5 +19,9 @@
 {{ greet("Angular") }} -->
 
 
-<app-test *ngIf="showelem"></app-test>
-<app-newcomponent></app-newcomponent>
+<!-- <app-test *ngIf="showelem"></app-test> -->
+<!-- <app-newcomponent></app-newcomponent> -->
+<div *ngIf="toggle">{{tName}}</div>
+<app-test *ngIf="showelem" 
+[trainingFromParent]="training" 
+(logEvent)="parentChild($event)"></app-test>
