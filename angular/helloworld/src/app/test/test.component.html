@@ -1,7 +1,8 @@
 <p>test works!</p>
-
+<h3>Loading: {{loading}}</h3>
+<h3>{{error}}</h3>
 <!-- <div id="myid">From test component</div> -->
-
+<!-- 
 <h2>Component Interation</h2>
 
 {{training}}
@@ -48,3 +49,30 @@
 <div>
     {{today | date:'medium'}}
 </div>
+
+<ul>
+    <li>department name
+        <ul>
+            <li>user 1</li>
+            <li>user 2</li>
+        </ul>
+    </li>
+    <li>department name 2
+        <ul>
+            <li>user 3</li>
+        </ul>
+    </li>
+</ul>
+<hr>
+<ul *ngFor="let user of users | groupby">
+    <li>{{user.department}}
+        <ul>
+            <li *ngFor="let u of user.users">{{u.name}}</li>
+        </ul>
+    </li>
+</ul> -->
+<hr>
+<h2>Service</h2>
+<ul>
+    <li *ngFor="let user of users">{{user.name}} - {{user.department}}</li>
+</ul>

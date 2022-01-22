@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-test',
@@ -16,13 +17,25 @@ export class TestComponent implements OnInit {
 
   num: number = 1000.554;
 
-  constructor() { 
+  users: any = [];
+  loading:boolean = true;
+  error: string = "";
+  constructor(
+    private userService: UserService
+  ) { 
     console.log("Constructor", "test component");
     
   }
 
   ngOnInit(): void {
     // let element = document.getElementById("myid");
+    this.userService.getUsers().subscribe((data: any) => {
+      this.users = data.data;
+      this.error = data.statusText;
+      this.loading = false;
+    },()=>{
+      this.loading = false;
+    });
     console.log("Init", "test component");
   }
 
